@@ -1,0 +1,102 @@
+\documentclass{article}
+\usepackage{standard}
+
+\title{Covariant extended geometry}
+\author{Robin Karlsson}
+\date{March 2018}
+
+\begin{document}
+
+%\maketitle
+
+\section{Covariant derivative}
+Introduce a connection $\Gamma$ to make a covariant derivative acting on a vector in $\overbar{R}(\lambda)$ with weight $w$
+\begin{equation}
+    D_M V_N = \pd_MV_N +\tensor{\Gamma}{_M_N^P}V_P-\frac{w+1}{|R|}\tensor{\Gamma}{_M_P^P}V_N,
+\end{equation}
+and on a vector in $R(\lambda)$
+\begin{equation}
+    D_M V^N = \pd_MV_N-\tensor{\Gamma}{_M_P^N}V_P-\frac{w-1}{|R|}\tensor{\Gamma}{_M_P^P}V_N.
+\end{equation}
+In order for $D$ to be a covariant derivative $\Gamma$ of course has to transform inhomogeneously as 
+\begin{equation}
+    \Delta_\xi \tensor{\Gamma}{_M_N^P}=\tensor{Z}{^{PQ}_{RN}}\pd_M\pd_Q\xi^R. 
+\end{equation}
+Only part in $R(2\lambda)\otimes R$ will pick up inhomogeneous terms thus non-torsion is given by modules in the overlap 
+\begin{equation}
+    \left(R(2\lambda)\otimes R\right)\cap \overbar{R}\otimes \left(\mathfrak{g}\oplus\mathbb{R}\right),
+\end{equation}
+while the others in $\mathfrak{g}\oplus\mathbb{R}$ transforms homogeneously and is defined as torsion living at level $-1$ in the tensor hierarchy algebra. Since the pair $_N^P$ is restricted to the adjoint module we can likewise write 
+\begin{equation}
+    \tensor{\Gamma}{_{MN}^P} = \tensor{T}{_\alpha^P_N}\tensor{\Gamma}{_{M}^\alpha}+\delta^P_N\Gamma_M
+\end{equation}
+and it transforms as ($k=1$ in $Z$)
+\begin{equation}
+    \Delta_\xi \tensor{\Gamma}{_{MN}^P}= \tensor{T}{_\alpha^P_N}\Delta_\xi\tensor{\Gamma}{_{M}^\alpha}+\delta^P_N\Delta_\xi\Gamma_M = -\tensor{T}{_\alpha^P_N}\tensor{T}{^\alpha^Q_R}\pd_M\pd_Q\xi^R+\delta^P_N\pd_M\pd_Q\xi^Q.
+\end{equation}
+i.e.
+\begin{align*}
+    &\Delta_\xi\tensor{\Gamma}{_{M}^\alpha}=-\tensor{T}{^\alpha^Q_R}\pd_M\pd_Q\xi^R,\\
+    &\Delta_\xi\Gamma_M = \pd_M\pd_Q\xi^Q.
+\end{align*}
+\subsection{Metric compatibility}
+By introducing a metric in $G/H$ with weight $w$ and demanding compatibility $D_M G_{NP}\overset{!}{=}0$ we find 
+\begin{equation}
+    \pd_MG_{NP} = -2\tensor{\Gamma}{_{M(NP)}}+\frac{2(w+1)}{|R|}\tensor{\Gamma}{_{MQ}^Q}G_{NP}.
+\end{equation}
+or in adjoint indices 
+\begin{equation}
+    \pd_MG_{NP} = \tensor{\Gamma}{_M^\alpha}\tensor{T}{^\alpha^S_N}G_{SP}+\tensor{\Gamma}{_M^\alpha}\tensor{T}{^\alpha^S_P}G_{NS}+\frac{2(w+1)}{|R|}\tensor{\Gamma}{_{MQ}^Q}G_{NP}.
+\end{equation}
+With a local involution defined as $\tensor{T}{^{*\alpha P }_S}=G_{ST}\tensor{T}{^{\alpha T }_K}G^{KP}$ we find by multiplying the equation above with $G^{KN}$
+\begin{equation}
+    G^{KN}\pd_MG_{NP} = \tensor{\Gamma}{_M^\alpha}\left(\tensor{T}{^\alpha^K_P}+\tensor{T}{^{*\alpha K}_P}\right)+\frac{2(w+1)}{|R|}\delta^K_P\tensor{\Gamma}{_{MQ}^Q},
+\end{equation}
+which is a nice form since it tells us that metric compatibility fixes the part in $\overbar{R}\otimes (\mathfrak{g}/\mathfrak{h}\oplus\mathbb{R})$ of $\Gamma$. This is clear from the fact that metric compatibility fixes the symmetric part $_{(NP)}$. 
+
+\section{Constructing a covariant symmetric rank 2 tensor}
+Taking the derivative of the connection we find the following inhomogeneous transformation 
+\begin{align*}
+    \Delta_\xi \pd_M\tensor{\Gamma}{_{NP}^Q} &= \tensor{Z}{^{QR}_{SP}}\pd_M\pd_N\pd_R \xi^S+\\
+    &+ \Delta_\xi\tensor{\Gamma}{_{MR}^Q}\tensor{\Gamma}{_{NP}^R}-\Delta_\xi\tensor{\Gamma}{_{MN}^R}\tensor{\Gamma}{_{RP}^Q}-\Delta_\xi \tensor{\Gamma}{_{MP}^R}\tensor{\Gamma}{_{NR}^Q}=\\
+    &= \tensor{Z}{^{QR}_{SP}}\pd_M\pd_N\pd_R \xi^S + \tensor{Z}{^{QS}_{TR}}\pd_S\pd_M\xi^T\tensor{\Gamma}{_{NP}^R} \\
+    &-\tensor{Z}{^{RS}_{TN}}\pd_S\pd_M\xi^T\tensor{\Gamma}{_{RP}^Q}-\tensor{Z}{^{RS}_{TP}}\pd_S\pd_M\xi^T\tensor{\Gamma}{_{NR}^Q}
+\end{align*}
+which can be rewritten as (for simplicity we for the moment set $\tilde{T}^\alpha\text{``}=\text{''}(T^\alpha,\sqrt{-\beta})$)
+\begin{align*}
+    \Delta_\xi \pd_M\tensor{\Gamma}{_{NP}^Q} &= -\tensor{\tilde{T}}{^\alpha ^R_S}\tensor{\tilde{T}}{^\alpha ^Q_P} \pd_M\pd_N\pd_R\xi^S-\tensor{\tilde{T}}{^\alpha ^S_T}\tensor{\tilde{T}}{^\alpha ^Q_R}\pd_S\pd_M\xi^T\tensor{\Gamma}{_{NP}^R}+\\
+    &+\tensor{\tilde{T}}{^\alpha ^R_N}\tensor{\tilde{T}}{^\alpha ^S_T}\pd_S\pd_M\xi^T\tensor{\Gamma}{_{RP}^Q}+\tensor{\tilde{T}}{^\alpha ^S_T}\tensor{\tilde{T}}{^\alpha ^R_P}\pd_S\pd_M\xi^T\tensor{\Gamma}{_{NR}^Q}. 
+\end{align*}
+It is clear that $\xi$ is projected onto the adjoint and we write $\xi^\alpha:=\tensor{\tilde{T}}{^\alpha ^R_S}\pd_R\xi^S$ (there is therefore a ``derivative in $\alpha$''). By expanding $\Gamma$ in adjoint indices we see that the second term in each line combine into a commutator in which the scalar part drops out 
+\begin{align*}
+    \Delta_\xi \pd_M\tensor{\Gamma}{_{NP}^Q} &= -\tensor{\tilde{T}}{^\alpha^Q_P}\pd_M\pd_N\xi^\alpha+f^{\gamma\beta\alpha}\tensor{T}{^{\gamma Q}_P}\tensor{\Gamma}{_N^\beta}\pd_M\xi^\alpha+\\
+    &-\tensor{Z}{^{RS}_{TN}}\pd_S\pd_M\xi^T\tensor{\Gamma}{_{RP}^Q},
+\end{align*}
+the adjoint property of $\tensor{}{_P^Q}$ is manifest in this expression. Note that if we restrict to a metric compatible connection and project onto $\mathfrak{g}/\mathfrak{h}$ there will be a derivative in $_R$ such that the last term will be symmetric in $_{MN}$ using the section condition. 
+
+
+
+By antisymmetrising in $_{MN}$ the $\pd^3$ term vanish and we find 
+\begin{equation}\label{eq:ett}
+    \Delta_\xi \pd_{[M}\tensor{\Gamma}{_{N]P}^Q} = f^{\gamma\beta\alpha}\tensor{T}{^{\gamma Q}_P}\tensor{\Gamma}{_{[N}^\beta}\pd_{M]}\xi^\alpha-\tensor{Z}{^{RS}_{T[N}}\pd_{M]}\pd_S\xi^T\tensor{\Gamma}{_{RP}^Q}.
+\end{equation}
+Clearly we need to add term containing a commutator $[\tensor{\Gamma}{_M^\alpha},\tensor{\Gamma}{_{N}^\beta}]$ to cancel the first term. Note that again that for a metric compatible connection projected onto $\mathfrak{g}/\mathfrak{h}$ the second term would vanish due to the symmetry noted above. Examine the following
+\begin{align*}
+    \tensor{\Gamma}{_{[M|P|}^R}\tensor{\Gamma}{_{N]R}^Q} = \frac{1}{2}\tensor{\Gamma}{_{M}^\beta}\tensor{\Gamma}{_{N}^\alpha}f^{\alpha\beta\gamma}\tensor{T}{^\gamma ^Q_P},
+\end{align*}
+which transforms inhomogeneously as 
+\begin{equation}
+    \Delta_\xi \tensor{\Gamma}{_{[M|P|}^R}\tensor{\Gamma}{_{N]R}^Q} = \pd_{[M}\xi^\alpha \tensor{\Gamma}{_{N]}^\beta}f^{\alpha\beta\gamma}\tensor{T}{^\gamma ^Q_P}
+\end{equation}
+and cancels the first term in \eqref{eq:ett}. We thus have 
+\begin{align*}\label{eq:cov}
+    \Delta_\xi\left(\pd_{[M}\tensor{\Gamma}{_{N]P}^Q}+\tensor{\Gamma}{_{[M|P|}^R}\tensor{\Gamma}{_{N]R}^Q}\right)&= -\tensor{Z}{^{RS}_{T[N}}\pd_{M]}\pd_S\xi^T\tensor{\Gamma}{_{RP}^Q} = -\Delta_\xi \tensor{\Gamma}{_{[MN]}^R}\tensor{\Gamma}{_{RP}^Q}\\
+    &= -\tensor{\tilde{T}}{^{\alpha R}_{[N}}\pd_{M]}\xi^\alpha \left(\tensor{\Gamma}{_R^\beta}\tensor{T}{^{\beta Q}_P}+\tensor{\Gamma}{_R}\delta^Q_P\right).
+\end{align*}
+
+Contract \ref{eq:cov} with $\delta_Q^N$
+
+
+
+
+\end{document}
